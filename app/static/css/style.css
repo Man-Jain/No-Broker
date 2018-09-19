@@ -552,13 +552,13 @@ a {
   visibility: hidden; }
 
 #msform {
-  width: 600px;
+  width: 100%;
   margin: 50px auto;
   text-align: center;
-  position: relative;
 }
 #msform fieldset {
   background: white;
+  width: 100%;
   border: 0 none;
   border-radius: 3px;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
@@ -671,4 +671,7 @@ a {
 #form-container-row{
   padding-top: 40px;
   padding-bottom: 200px;
+}
+#form-container-out{
+  width:100%;
 }
