@@ -32,7 +32,7 @@
           <div class="col-md-12">
             <h3 class="display-6 probootstrap-section-heading"><a href="{{ url_for('home.index') }}">NOBroker</a></h3>
             <br>
-            <h4 class="display-5 border-bottom probootstrap-section-heading">Login</h4>
+            <h4 class="display-5 border-bottom probootstrap-section-heading">Register</h4>
           </div>
         </div>
       </div>
@@ -44,13 +44,27 @@
             <form action="" method="POST" class="probootstrap-form probootstrap-form-box mb60">
               {{ form.csrf_token }}
               <div class="form-group">
+                {{ form.name(class='form-control',placeholder='Name')}}
+              </div>
+              <div class="form-group">
+                {{ form.email(class='form-control',placeholder='Email')}}
+              </div>
+              <div class="form-group">
                 {{ form.username(class='form-control',placeholder='Username')}}
+              </div>
+              <div class="form-group">
+                {{ form.user_type.label }}
+                {{ form.user_type}}
+                
               </div>
               <div class="form-group">
                 {{form.password(class='form-control', placeholder='Password')}}
               </div>
+              <div class="form-group">
+                {{form.confirm_password(class='form-control', placeholder='Confirm Password')}}
+              </div>
               <center><div class="form-group">
-                <a href="{{ url_for('auth.register') }}">Register</a><br>
+                <a href="{{ url_for('auth.register') }}">Login</a><br>
                 {{form.submit(class='btn btn-primary')}}
               </div></center>
             </form>

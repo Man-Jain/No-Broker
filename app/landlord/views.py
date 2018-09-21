@@ -13,6 +13,7 @@ def calculate_rent(a):
 '''All the routes that render webpages'''
 
 #Page for calculating property rent
+@login_required
 @landlord.route('/property', methods=['GET','POST'])
 def add_property():
 	form = PropertyRent()
@@ -22,7 +23,7 @@ def add_property():
 					 address=form.address.data,
 					 rent=rent,
 					 rooms=int(form.rooms.data),
-					 landlord=1
+					 landlord=current_user.user_id
 					 )
 		db.session.add(property)
 		db.session.commit()
@@ -31,22 +32,21 @@ def add_property():
 	return(render_template('landlord/property.html', form=form))
 
 #Page for showing previous properties
+@login_required
 @landlord.route('/prevresults')
 def prev_results():
-	user = Users.query.get(1)
+	user = Users.query.get(current_user.user_id)
 	properties = user.user_properties
-	return render_template('landlord/lproperties.html',properties=properties)
+	return render_template('landlord/lproperties.html',properties=properties, current_user=current_user)
 
 #Give a custom page for every property
+@login_required
 @landlord.route('/property/<user>/<property_id>')
 def custom_property_page(user, property_id):
 	property_details = Properties.query.get(property_id)
 	return render_template('landlord/property_details.html',property=property_details)
 
+@login_required
 @landlord.route('/lenquiries')
 def enquiries():
 	return render_template('landlord/lenquiries.html')
-
-@landlord.route('/llogout')
-def landlord_logout():
-	return 'a'
