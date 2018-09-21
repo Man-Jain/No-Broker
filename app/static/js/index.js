@@ -18,7 +18,7 @@ $(".next").click(function(){
 	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 	
 	//show the next fieldset
-	next_fs.show(); 
+	next_fs.show();
 	//hide the current fieldset with style
 	current_fs.animate({opacity: 0}, {
 		step: function(now, mx) {
@@ -29,10 +29,11 @@ $(".next").click(function(){
 			left = (now * 50)+"%";
 			//3. increase opacity of next_fs to 1 as it moves in
 			opacity = 1 - now;
-			current_fs.css({'transform': 'scale('+scale+')'});
+			next_fs.css({"position":"absolute"});
 			next_fs.css({'left': left, 'opacity': opacity});
-		}, 
-		duration: 800, 
+			current_fs.css({'transform': 'scale('+scale+')'});
+			next_fs.css({"opacity": opacity});
+		},duration: 800,
 		complete: function(){
 			current_fs.hide();
 			animating = false;

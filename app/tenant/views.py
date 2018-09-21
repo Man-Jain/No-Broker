@@ -4,19 +4,23 @@ import json
 
 from .. import db
 from ..models import *
-from . import users
+from . import tenant
 from .forms import *
 
-@users.route('/')
-@users.route('/index')
-def index():
+'''All the routes that render webpages.'''
+#Route for tenant dashboard
+@tenant.route('/tdash')
+def tdash():
 	return render_template('index.html')
 
-@users.route('/property')
-def add_property():
+#List of properties user enquired for
+@tenant.route('/userenquiries')
+def user_enquiries():
 	return render_template('property.html')
 
-@users.route('/subprop', methods=['GET','POST'])
-def submit_property():
+'''Routes for from posting'''
+#Search for property
+@tenant.route('/searchprop', methods=['GET','POST'])
+def search_property():
 	form_data = request.form
 	return json.dumps({'status':'OK','data':form_data})

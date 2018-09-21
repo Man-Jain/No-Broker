@@ -1,9 +1,9 @@
 from flask_restful import Api, Resource
 from . import api, rest
 from .. import db
-from ..models import Schedule, Student, Attendance
+#from ..models import Schedule, Student, Attendance
 from datetime import datetime
-
+'''
 class Faculty_Schedule(Resource):
 	"""docstring for Note"""
 	def get(self, faculty_id):
@@ -46,4 +46,4 @@ rest.add_resource(Students, '/students/list/<int:batch_code>')
 rest.add_resource(Test, '/test')
 
 
-#pbkdf2:sha256:50000$g2mwDcDJ$fd6fbb1398217e35b1cca2d5272517ce732c0cc107107b472447defdfbbd76cc
+#pbkdf2:sha256:50000$g2mwDcDJ$fd6fbb1398217e35b1cca2d5272517ce732c0cc107107b472447defdfbbd76cc'''
