@@ -17,7 +17,7 @@ class Login(Resource):
 			user_details['mobile_no'] = user.mobile_no
 			user_details['name'] = user.name
 			user_details['user_type'] = user.user_type
-			return {'user':user_details},201
+			return user_details,201
 		else:
 			return abort(404, message="User {} doesn't exist".format(mobile_no))
 
