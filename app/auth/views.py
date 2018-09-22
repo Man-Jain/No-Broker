@@ -10,7 +10,7 @@ from . import auth
 def login():
 	form = LoginForm()
 	if form.validate_on_submit():
-		user = Users.query.filter_by(username=form.username.data).first()
+		user = Users.query.filter_by(mobile_no=form.mobile_no.data).first()
 		if user is not None and user.verify_password(form.password.data):
 			login_user(user)
 			if user.user_type == 'L':
@@ -28,7 +28,7 @@ def register():
 		user = Users(email = form.email.data,
 					name=form.name.data,
 					user_type=form.user_type.data,
-                    username = form.username.data,
+                    mobile_no = form.mobile_no.data,
                     password=form.password.data)
 
 		db.session.add(user)
