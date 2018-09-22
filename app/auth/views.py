@@ -30,7 +30,6 @@ def register():
 					user_type=form.user_type.data,
                     mobile_no = form.mobile_no.data,
                     password=form.password.data)
-
 		db.session.add(user)
 		db.session.commit()
 		flash('Successfully Registered')
@@ -41,7 +40,6 @@ def register():
 @auth.route('/logout')
 @login_required
 def logout():
-
     logout_user()
     flash('You have successfully been logged out.')
 

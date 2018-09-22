@@ -31,14 +31,15 @@ class Register(Resource):
 		user_type = request.form['user_type']
 		user = Users(email = email,
 					name=name,
+					user_type=user_type,
 					mobile_no = mobile_no,
                     password=password)
 		if Users.query.filter_by(email=email).first() and Users.query.filter_by(mobile_no=mobile_no).first():
-			return abort(404, message="User already exists")
+			return {'status':'0','message':'User Already Exists'},404
 		else :
 			db.session.add(user)
 			db.session.commit()
-			return abort(404, message="User successfully registered")
+			return {'status':'1','message':'User Successfully Registered'},201
 
 
 rest.add_resource(Login, '/login')

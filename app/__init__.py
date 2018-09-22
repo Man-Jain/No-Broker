@@ -27,11 +27,11 @@ def create_app(config_name):
 	from .api import api as api_blueprint
 	app.register_blueprint(api_blueprint, url_prefix ='/api')
 
-	from .tenant import tenant as tenant_blueprint
-	app.register_blueprint(tenant_blueprint)
-
 	from .landlord import landlord as landlord_blueprint
 	app.register_blueprint(landlord_blueprint)
+
+	from .tenant import tenant as tenant_blueprint
+	app.register_blueprint(tenant_blueprint)
 
 	from .home import home as home_blueprint
 	app.register_blueprint(home_blueprint)

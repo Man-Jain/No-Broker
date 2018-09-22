@@ -3,15 +3,25 @@ from flask_login import current_user
 
 #Preceding dots represents the going backward in dirs.
 from .. import db
-#from ..models import Feedback
+from ..models import Users
 from app.auth.forms import RegistrationForm
 #Imports home from __init__.py file in home directory
 from . import home
 
-@home.route('/')
-@home.route('/index')
+@home.route('/', methods=['GET','POST'])
+@home.route('/index', methods=['GET','POST'])
 def index():
 	form = RegistrationForm()
+	if form.validate_on_submit():
+		user = Users(email = form.email.data,
+					name=form.name.data,
+					user_type=form.user_type.data,
+                    mobile_no = form.mobile_no.data,
+                    password=form.password.data)
+		db.session.add(user)
+		db.session.commit()
+		flash('Successfully Registered')
+		return redirect(url_for('auth.login'))
 	return render_template('/home/index.html', form= form)
 
 @home.route('/services')

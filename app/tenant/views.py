@@ -1,7 +1,5 @@
-from flask import abort, render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_required
-import json
-
+from flask import abort, render_template, flash, redirect, url_for, request
 from .. import db
 from ..models import Enquiries, Properties, Users
 from . import tenant
@@ -10,11 +8,13 @@ from .forms import *
 '''All the routes that render webpages.'''
 #Route for tenant dashboard
 @tenant.route('/search')
+@login_required
 def search():
 	return render_template('tenant/search.html')
 
 #List of properties user enquired for
 @tenant.route('/userenquiries')
+@login_required
 def user_enquiries():
 	user = Users.query.get(current_user.user_id)
 	enquiries = user.user_enquiries
