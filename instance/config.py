@@ -6,4 +6,4 @@ SECRET_KEY = 'p9Bv<qeqqwqwfsdgs#%$#$%T%$i01'
         'sqlite:///' + os.path.join(basedir, 'app.db')'''
 
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-			'mysql+pymysql://root:root@localhost:3306/nobroker_db'
+			'mysql+pymysql://root:root@localhost:3306/nobroker'

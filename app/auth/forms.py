@@ -13,7 +13,7 @@ class LoginForm(FlaskForm):
 class RegistrationForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    mobile_no = IntegerField('Mobile No.', validators=[DataRequired()])
+    mobile_no = StringField('Mobile No.', validators=[DataRequired()])
     #username = StringField('Username', validators=[DataRequired()])
     user_type = RadioField('What You Want to Do',choices=[('L','Give on Rent'),('T','Take on Rent')] , validators=[DataRequired()])
     password = PasswordField('Password', validators=[
