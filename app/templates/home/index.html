@@ -12,87 +12,32 @@
             </p>
           </div>
                     <div class="col-md probootstrap-animate">
-            <form action="#" class="probootstrap-form">
+            <form action="" method="POST" class="probootstrap-form probootstrap-form-box mb60">
+              {{ form.csrf_token }}
               <div class="form-group">
-                <div class="row mb-3">
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="id_label_single">From</label>
-
-                      <label for="id_label_single" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single" style="width: 100%;">
-                          <option value="Australia">Australia</option>
-                          <option value="Japan">Japan</option>
-                          <option value="United States">United States</option>
-                          <option value="Brazil">Brazil</option>
-                          <option value="China">China</option>
-                          <option value="Israel">Israel</option>
-                          <option value="Philippines">Philippines</option>
-                          <option value="Malaysia">Malaysia</option>
-                          <option value="Canada">Canada</option>
-                          <option value="Chile">Chile</option>
-                          <option value="Chile">Zimbabwe</option>
-                        </select>
-                      </label>
-
-
-                    </div>
-                  </div>
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="id_label_single2">To</label>
-                      <div class="probootstrap_select-wrap">
-                        <label for="id_label_single2" style="width: 100%;">
-                        <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
-                          <option value="Australia">Australia</option>
-                          <option value="Japan">Japan</option>
-                          <option value="United States">United States</option>
-                          <option value="Brazil">Brazil</option>
-                          <option value="China">China</option>
-                          <option value="Israel">Israel</option>
-                          <option value="Philippines">Philippines</option>
-                          <option value="Malaysia">Malaysia</option>
-                          <option value="Canada">Canada</option>
-                          <option value="Chile">Chile</option>
-                          <option value="Chile">Zimbabwe</option>
-                        </select>
-                      </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- END row -->
-                <div class="row mb-5">
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="probootstrap-date-departure">Departure</label>
-                      <div class="probootstrap-date-wrap">
-                        <span class="icon ion-calendar"></span> 
-                        <input type="text" id="probootstrap-date-departure" class="form-control" placeholder="">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="probootstrap-date-arrival">Arrival</label>
-                      <div class="probootstrap-date-wrap">
-                        <span class="icon ion-calendar"></span> 
-                        <input type="text" id="probootstrap-date-arrival" class="form-control" placeholder="">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- END row -->
-                <div class="row">
-                  <div class="col-md">
-                    <label for="round" class="mr-5"><input type="radio" id="round" name="direction">  Round</label>
-                    <label for="oneway"><input type="radio" id="oneway" name="direction">  Oneway</label>
-                  </div>
-                  <div class="col-md">
-                    <input type="submit" value="Submit" class="btn btn-primary btn-block">
-                  </div>
-                </div>
+                {{ form.name(class='form-control',placeholder='Name')}}
               </div>
+              <div class="form-group">
+                {{ form.email(class='form-control',placeholder='Email')}}
+              </div>
+              <div class="form-group">
+                {{ form.mobile_no(class='form-control',placeholder='Mobile No.')}}
+              </div>
+              <div class="form-group">
+                {{ form.user_type.label }}
+                {{ form.user_type}}
+                
+              </div>
+              <div class="form-group">
+                {{form.password(class='form-control', placeholder='Password')}}
+              </div>
+              <div class="form-group">
+                {{form.confirm_password(class='form-control', placeholder='Confirm Password')}}
+              </div>
+              <center><div class="form-group">
+                <a href="{{ url_for('auth.register') }}">Login</a><br>
+                {{form.submit(class='btn btn-primary')}}
+              </div></center>
             </form>
           </div>
         </div>

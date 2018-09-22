@@ -4,14 +4,15 @@ from flask_login import current_user
 #Preceding dots represents the going backward in dirs.
 from .. import db
 #from ..models import Feedback
-#from .forms import FeedbackForm
+from app.auth.forms import RegistrationForm
 #Imports home from __init__.py file in home directory
 from . import home
 
 @home.route('/')
 @home.route('/index')
 def index():
-	return render_template('/home/index.html')
+	form = RegistrationForm()
+	return render_template('/home/index.html', form= form)
 
 @home.route('/services')
 def services():
