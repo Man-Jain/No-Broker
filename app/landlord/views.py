@@ -19,11 +19,13 @@ def add_property():
 	if form.validate_on_submit():
 		rent = calculate_rent(2)
 		property = Properties(property_name=form.name.data,
-					 address=form.address.data,
-					 rent=rent,
-					 rooms=int(form.rooms.data),
-					 landlord=current_user.user_id
-					 )
+						      lease_type = form.lease_type.data,	 		  
+					          furnished = int(form.furnished.data),
+					          address=form.address.data,
+					          rent=rent,
+					          rooms=int(form.rooms.data),
+					          landlord=current_user.user_id)
+
 		db.session.add(property)
 		db.session.commit()
 		return render_template('landlord/property.html', form=form)

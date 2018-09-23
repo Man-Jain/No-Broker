@@ -29,7 +29,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar scrolled awake" id="probootstrap-navbar" style="position: inherit;">
       <div class="container">
-        <a class="navbar-brand" href="{{ url_for('landlord.add_property') }}"><img src="{{ url_for('static', filename='images/favicon.png') }}" href=""></img> NOBroker</a>
+        <a class="navbar-brand" href="{{ url_for('home.index') }}"><img src="{{ url_for('static', filename='images/favicon.png') }}" href=""></img> NOBroker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-menu" aria-controls="probootstrap-menu" aria-expanded="false" aria-label="Toggle navigation">
           <span><i class="ion-navicon"></i></span>
         </button>
@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="probootstrap-menu">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link" href="{{ url_for('home.index') }}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('landlord.add_property') }}">Property</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('landlord.add_property') }}">Calculate Rent</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('landlord.enquiries') }}">Enquiries</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('landlord.prev_results') }}">History</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a></li>
@@ -50,7 +50,7 @@
         {% block tenant %}
         <div class="collapse navbar-collapse" id="probootstrap-menu">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('tenant.search') }}">Search</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('home.index') }}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('home.user_enquiries') }}">Enquiries</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a></li>
           </ul>

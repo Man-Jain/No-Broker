@@ -46,6 +46,8 @@ class Properties(db.Model):
 
 	property_id = db.Column(db.Integer, primary_key=True)
 	property_name = db.Column(db.String(255))
+	lease_type = db.Column(db.String(5))
+	furnished = db.Column(db.Integer)
 	address = db.Column(db.String(255))
 	rent = db.Column(db.Integer)
 	rooms = db.Column(db.Integer)

@@ -18,9 +18,8 @@ def index():
 def results():
 	form = Search()
 	if form.validate_on_submit():
-		location = form.location.data
 		rooms = form.rooms.data
-		properties = Properties.query.filter_by(rooms=rooms).all()
+		properties = Properties.query.filter_by(rooms=int(rooms)).all()
 		return render_template('home/results.html', current_user=current_user, properties=properties)
 
 @home.route('/newenquiry/<property_id>')
@@ -31,7 +30,8 @@ def new_enquiry(property_id):
 	db.session.add(enquiry)
 	db.session.commit()
 	flash('Enquiry Created Successfully')
-	return redirect(url_for('home.results'))
+	return redirect(url_for('home.custom_property_home',property_id=property_id,
+					user=current_user.user_id))
 
 @home.route('/homeproperty/<user>/<property_id>')
 def custom_property_home(user, property_id):

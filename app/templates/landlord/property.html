@@ -12,6 +12,8 @@
   <!-- progressbar -->
   <ul id="progressbar">
        <li class="active">Name</li>
+       <li>Lease Type</li>
+       <li>Furnished</li>
        <li>Address</li>
        <li>Rooms</li>
   </ul>
@@ -23,10 +25,22 @@
 <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
   <fieldset>
+    <h2 class="fs-title">PATIENT AGE</h2>
+    <h3 class="fs-subtitle">First Step</h3>
+    {{form.lease_type.label}} {{ form.lease_type }}
+<input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">PATIENT AGE</h2>
+    <h3 class="fs-subtitle">First Step</h3>
+    {{form.furnished.label}} {{ form.furnished }}
+<input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
     <h2 class="fs-title">Diabetes type</h2>
     <h3 class="fs-subtitle">Second Step</h3>
     {{form.address.label}} {{ form.address }}
-  </br>
+  <br>
     <input type="button" name="previous" class="previous action-button" value="Previous" />
     <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
@@ -34,7 +48,7 @@
     <h2 class="fs-title">Treament Type</h2>
     <h3 class="fs-subtitle">Third Step</h3>
     {{form.rooms.label}} {{ form.rooms }}
-  </br>
+  <br>
     <input type="button" name="previous" class="previous action-button" value="Previous" />
     {{form.submit(class='submit action-button')}}
   </fieldset>
