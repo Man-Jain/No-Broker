@@ -1,17 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField, SubmitField, ValidationError, IntegerField, FileField
+from wtforms import PasswordField, StringField, SubmitField, ValidationError, IntegerField, SelectField, RadioField
 from wtforms.validators import DataRequired
-from flask_wtf.file import FileField, FileRequired
-from wtforms.fields.html5 import DateField
 
-class GetStudentsAttendance(FlaskForm):
-	section = StringField('Enter Section', validators=[DataRequired()])
-	datefrom = DateField('From Date', validators=[DataRequired()], format='%Y-%m-%d')
-	dateto = DateField('To Date', validators=[DataRequired()], format='%Y-%m-%d')
-	submit = SubmitField('Submit')
-
-class AddClass(FlaskForm):
-	section = StringField('Enter Section Name', validators=[DataRequired()])
-	semester = IntegerField('Enter Semester Number', validators=[DataRequired()])
-	excel_file = FileField('Enter Student List',validators=[FileRequired()])
-	submit = SubmitField('Submit')
+class Search(FlaskForm):
+	lease_type = SelectField('Lease Type',choices=[('f','Family'),('a','Anyone'),('c','Company')], validators=[DataRequired()])
+	furnished = RadioField('Furnished or Not',choices=[(0,'Not Furnished'),(1,'Furnished')] , validators=[DataRequired()])
+	rooms = SelectField('Enter BHK',choices=[(1,'1BHK'),(2,'2BHK'),(3,'3BHK'),(4,'4BHK')], validators=[DataRequired()])
+	submit = SubmitField('Search')

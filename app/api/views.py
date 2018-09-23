@@ -4,6 +4,9 @@ from . import api, rest
 from .. import db
 from ..models import *
 
+def cal_rent(a):
+	return a*5
+
 class Login(Resource):
 	#For login
 	def post(self):
@@ -41,6 +44,39 @@ class Register(Resource):
 			db.session.commit()
 			return {'status':'1','message':'User Successfully Registered'},201
 
+class Property(Resource):
+	#For properties
+	def post(self):
+		property_name = request.form['property_name']
+		address = request.form['address']
+		rooms = request.form['rooms']
+		landlord_id = request.form['landlord_id']
+		rent = cal_rent(5)
+		property = Properties(property_name=property_name,
+							  address=address,
+							  rent=rent,
+							  rooms=rooms,
+							  landlord=landlord_id)
+		db.session.add(property)
+		db.session.commit()
+
+		return {'calculates_rent':rent},201
+
+class Enquiry(Resource):
+	#For enquiries
+	def post(self):
+		property_id = request.form['property_id']
+		enquirer_id = request.form['enquirer_id']
+
+		enquiry = Enquiries(property_id=property_id,
+							enquirer_id=enquirer_id)
+
+		db.session.add(enquiry)
+		db.session.commit()
+
+		return {'Status':'Done'},201
 
 rest.add_resource(Login, '/login')
 rest.add_resource(Register, '/register')
+rest.add_resource(Property, '/addproperty')
+rest.add_resource(Enquiry, '/enquiry')

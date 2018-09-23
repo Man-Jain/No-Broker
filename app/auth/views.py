@@ -13,10 +13,7 @@ def login():
 		user = Users.query.filter_by(mobile_no=form.mobile_no.data).first()
 		if user is not None and user.verify_password(form.password.data):
 			login_user(user)
-			if user.user_type == 'L':
-				return redirect(url_for('landlord.add_property'))
-			else:
-				return redirect(url_for('tenant.search'))
+			return redirect(url_for('home.index'))
 		else:
 			flash('Invalid email or password.')
 	return render_template('auth/login.html', form=form)

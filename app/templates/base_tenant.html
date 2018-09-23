@@ -29,14 +29,14 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar scrolled awake" id="probootstrap-navbar" style="position: inherit;">
       <div class="container">
-        <a class="navbar-brand" href="{{ url_for('landlord.add_property') }}"><img src="{{ url_for('static', filename='images/favicon.png') }}" href=""></img> NOBroker</a>
+        <a class="navbar-brand" href="{{ url_for('home.index') }}"><img src="{{ url_for('static', filename='images/favicon.png') }}" href=""></img> NOBroker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-menu" aria-controls="probootstrap-menu" aria-expanded="false" aria-label="Toggle navigation">
           <span><i class="ion-navicon"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="probootstrap-menu">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('tenant.search') }}">Search</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('tenant.user_enquiries') }}">Enquiries</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('home.index') }}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('home.user_enquiries') }}">Enquiries</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a></li>
           </ul>
         </div>
@@ -50,8 +50,8 @@
           <div class="col-md-3">
             <h3 class="probootstrap_font-18 mb-3">Quick Links</h3>
             <ul class="list-unstyled">
-              <li><a href="{{ url_for('landlord.add_property') }}" target="_blank">Search</a></li>
-              <li><a href="{{ url_for('landlord.enquiries') }}" target="_blank">Enquiries</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ url_for('home.index') }}">Home</a></li>
+              <li><a href="{{ url_for('home.user_enquiries') }}" target="_blank">Enquiries</a></li>
             </ul>
           </div>
         </div>

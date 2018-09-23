@@ -677,3 +677,6 @@ a {
     display: table-cell;
     vertical-align: middle;
 }
+#data-select2-id{
+  width: 100%;
+}

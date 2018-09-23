@@ -8,15 +8,6 @@ from . import tenant
 from .forms import *
 
 '''All the routes that render webpages.'''
-#Route for tenant dashboard
-@tenant.route('/search', methods=['GET','POST'])
-@login_required
-def search():
-	form = Search()
-	if form.validate_on_submit():
-		user_data = {'location':form.location.data,'rooms':form.rooms.data}
-		return json.dumps(user_data, indent=2)
-	return render_template('tenant/search.html', form=form)
 
 #List of properties user enquired for
 @tenant.route('/userenquiries')
